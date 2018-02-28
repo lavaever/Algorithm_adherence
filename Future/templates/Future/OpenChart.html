@@ -1,0 +1,43 @@
+{% load otree %}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+    $(function () {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Overview of Historical Data'
+            },
+            subtitle: {
+                text: 'Source: Company Internal Database'
+            },
+            xAxis: {
+                categories: {{ the_axis|json }},
+                title: {
+                    text: 'period'
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Unit (k pcs)'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false,
+                    animation: false,
+                }
+            },
+            series: {{startseries|json}}
+        });
+    })
+</script>

@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Period {{ player.round_number }} Initial Decision
+{% endblock %}
+
+{% block content %}
+
+<p>
+    The chart below shows the historical sales data of {{ Constants.product_name }}
+    and your final forecast in the previous round.
+</p>
+<p>
+    {% if player.round_number == 1 %} There's no data for your previous forecast at period 1. {% endif %}
+</p>
+<p>
+    Based on the historical data below,
+</p>
+    {% formfield player.initial_forecast label=initial_forecast_label%}
+    {% formfield player.initial_forecast1 label=initial_forecast1_label%}
+    {% formfield player.initial_forecast2 label=initial_forecast2_label%}
+
+    {% include 'Real/OpenChart.html' %}
+    {% next_button %}
+
+{% endblock %}

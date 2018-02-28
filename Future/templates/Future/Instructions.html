@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+     <h4>Instructions</h4>
+     <p>
+        You will forecast the demand of {{ Constants.product_name }}.
+     </p>
+
+    {% next_button %}
+
+{% endblock %}
+

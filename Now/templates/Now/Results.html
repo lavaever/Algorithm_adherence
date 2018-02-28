@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Period {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+    <h4>Results</h4>
+    <p>
+    Below is an overview of the final results for this period.
+    </p>
+    <table class="table">
+        <tr>
+            <th>Your Initial Forecast</th>
+            <td>{{ player.initial_forecast }}</td>
+        </tr>
+        <tr>
+            <th>Model Forecast</th>
+            <td>{{ forecasted }}</td>
+        </tr>
+        <tr>
+            <th>Your Final Forecast</th>
+            <td>{{ player.forecast_amount }}</td>
+        </tr>
+        <tr>
+            <th>Actual Sales</th>
+            <td>{{ actual }}</td>
+        </tr>
+    </table>
+    {% include 'Now/OpenChart.html' %}
+    {% next_button %}
+{% endblock %}
+
+

@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Intelligence Update
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        The intelligence unit has reported the unexpected low sales in {{ player.round_number }}
+        to be caused by a major competitor's hostile actions.
+    </p>
+    <p>
+        The competitor started to sell their chips to our major customers at prices below cost
+        in order to gain market share. And therefore, our customers canceled or decreased their
+        orders with us. The forecast model has been designed to exclude rare events like this
+        and thus forecasted far off the actual sales of this period.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+

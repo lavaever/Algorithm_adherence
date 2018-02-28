@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block content %}
+    <p>
+        Please answer the following questions <strong>truthfully</strong> and
+        as <strong>informative</strong> as possible
+        to help me gain a better understanding of the participants.
+    </p>
+    <p>
+        All data will be kept anonymous and will be used solely for the purpose of my master's thesis.
+    </p>
+
+
+
+    {% formfield player.course %}
+    {% formfield player.forecasting_years%}
+
+    {% next_button %}
+
+{% endblock %}

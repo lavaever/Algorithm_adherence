@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results Overview
+{% endblock %}
+
+{% block content %}
+<p>
+    You have finished forecasting the demand of {{ Constants.product_name }}
+</p>
+
+    <p>
+        The chart below gives an overview of your past forecast, the model's past forecast
+        and the past demand.
+    </p>
+    <p>
+        Please click on next to continue to the next forecasting task.
+    </p>
+
+
+    {% include 'Now/OpenChart.html' %}
+    {% next_button %}
+
+{% endblock %}

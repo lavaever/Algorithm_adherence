@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Period {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+
+<p>
+    The chart below shows the historical sales data of {{ Constants.product_name }}.<br/>
+    Please enter your initial forecast for this period in the box below.
+</p>
+    <table class="table">
+            <tr>
+                <th>Your Initial Forecast</th>
+                <td>{% formfield player.initial_forecast %}</td>
+            </tr>
+
+
+    </table>
+
+
+
+    {% include 'Now/OpenChart.html' %}
+    {% next_button %}
+
+{% endblock %}

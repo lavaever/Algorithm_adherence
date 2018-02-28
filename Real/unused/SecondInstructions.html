@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Welcome to the Rolling Forecast Phase
+{% endblock %}
+
+{% block content %}
+     <h4>Instructions</h4>
+     <p>
+        In this section, you will be asked to forecast the sales of this period and two more periods in the future.
+     </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

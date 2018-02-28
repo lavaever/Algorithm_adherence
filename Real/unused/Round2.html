@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Period {{ player.round_number }} Final Decision
+{% endblock %}
+
+{% block content %}
+
+<p>The system model has forecasted the sales in period
+    {{ player.round_number }}, {{ plus1 }}, and {{ plus2 }} to be
+    {{ forecasted }}, {{ forecasted1 }}, {{ forecasted2 }} respectively.</p>
+    {% formfield player.forecast_amount label=forecast_amount_label %}
+    {% formfield player.forecast_plus1 label=forecast_plus1_label %}
+    {% formfield player.forecast_plus2 label=forecast_plus2_label %}
+    {% include 'Real/OpenChart.html' %}
+    {% next_button %}
+
+{% endblock %}

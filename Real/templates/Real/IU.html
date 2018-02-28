@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Intelligence Update
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        The actual sales in period {{ player.round_number}} was much lower than forecasted
+        because our main customer of the chip was falsely accused of
+        leaking sensitive security data to the Chinese government.
+        The forecast model has been designed to exclude rare events like this
+        and thus forecasted far off the actual sales of this period.
+    </p>
+    <p>
+        The customer experienced canceled orders and thus had to cancel with us.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+

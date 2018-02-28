@@ -1,0 +1,85 @@
+{% load otree %}
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+<script>
+    $ (function () {
+        Highcharts.chart('container', {
+            chart: {
+                zoomType: 'xy'
+            },
+            title: {
+                text: 'Historical Sales, App Popularity and Your Past Forecast'
+            },
+            subtitle: {
+                text: 'Source: Infineon Internal Data'
+            },
+            xAxis: [{
+                 categories: {{ close_axis|json }},
+                 crosshair: true
+            }],
+            yAxis: [{ // Primary yAxis
+                labels: {
+                format: '{value}k units',
+                style: {
+                    color: Highcharts.getOptions().colors[2]
+                }
+            },
+                title: {
+                    text: 'Sales',
+                    style: {
+                        color: Highcharts.getOptions().colors[2]
+                    }
+                },
+                opposite: false
+            }, { // Secondary yAxis
+                gridLineWidth: 0,
+                title: {
+                    text: 'App Popularity',
+                    style: {
+                        color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                labels: {
+                    format: '{value} /100',
+                    style: {
+                    color: Highcharts.getOptions().colors[0]
+                    }
+                },
+                opposite: true
+            },{ //Tertiary yAxis
+                gridLineWidth: 0,
+                title: {
+                    text: 'Your Past Forecast',
+                    style: {
+                        color: Highcahrts.getOptions().color[1]
+                    }
+                },
+                labels: {
+                    format: ' {value}k units',
+                    style: {
+                        color: Highcahrts.getOptions().color[1]
+                    }
+                },
+                opposite: false
+            }],
+            tooltip: {
+                shared: true
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'left',
+                x: 80,
+                verticalAlign: 'top',
+                y: 55,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+            },
+            series: {{ hehehe|json }}
+        });
+    })
+</script>

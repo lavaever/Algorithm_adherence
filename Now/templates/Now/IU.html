@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Intelligence Update
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        The actual sales in period {{player.round_number}} was extraordinarily high
+        due to our client winning a government procurement contract
+        as the opponent fell out of the bidding process unexpectedly.
+    </p>
+    <p>
+        In order to fulfill the contract, our client placed an emergency order with us on short notice.
+    </p>
+    <p>
+        The forecast model has been designed to exclude rare events like this
+        and thus forecasted far off the actual sales of this period.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+
