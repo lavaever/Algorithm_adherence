@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Forecast Accuracy
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Mean Absolute Error of the model forecast and your forecast from period 1 to period {{ Constants.num_rounds }}.
+    </p>
+    <table class="table">
+        <tr>
+            <th>MAE of Model Forecast</th>
+            <td>{{ modelcast_mae }}</td>
+        </tr>
+        <tr>
+            <th>MAE of Your Final Forecast</th>
+            <td>{{ mencast_mae }}</td>
+        </tr>
+    </table>
+
+
+
+    {% next_button %}
+{% endblock %}
+
+

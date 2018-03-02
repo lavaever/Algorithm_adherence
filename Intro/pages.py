@@ -63,6 +63,9 @@ def build_participant_to_player_lookup(participant, subsession_app_names):
         participant.save()
     ParticipantToPlayerLookup.objects.bulk_create(records_to_create)
 
+class Welcome(Page):
+    pass
+
 class Instructions(Page):
     def is_displayed(self):
         print('OLD APP SEQ', self.participant.session.config['app_sequence'])
@@ -89,18 +92,27 @@ class Understanding2(Page):
 
 class Understanding3(Page):
     form_model = 'player'
+    form_fields = ['mechanism']
+    def mechanism_error_message(self, choice):
+        if choice != 1:
+            return 'Please study the instructions below carefull and enter a valid answer'
+
+class Understanding4(Page):
+    form_model = 'player'
     form_fields = ['accuracy']
     def accuracy_error_message(self, choice):
-        if choice !=2:
+        if choice !=3:
             return 'Please study the instructions below carefully and enter a valid answer.'
 
 class Wait(Page):
     pass
 
 page_sequence = [
+    Welcome,
     Instructions,
     Understanding1,
     Understanding2,
     Understanding3,
+    Understanding4,
     Wait,
 ]

@@ -2,16 +2,17 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Understanding Check - 1/4
+    Self Evaluation
 {% endblock %}
 
 {% block content %}
+    <p>
+    Please rate the following items.
 
-{% formfield player.aim %}
+    </p>
+
+{{ form }}
 
     {% next_button %}
 
-{% include Constants.instructions_template %}
-
 {% endblock %}
-

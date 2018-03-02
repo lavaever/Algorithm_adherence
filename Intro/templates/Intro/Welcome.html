@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Welcome!
+{% endblock %}
+
+{% block content %}
+
+     <h4>Welcome</h4>
+     <p>
+        Thank you for participating in the game.
+     </p>
+     <p>
+        Please read the instructions in the next page carefully to make sure you understand the instructions.
+        If you have any question, please notify the operator.
+     </p>
+     <p>
+         Please <strong>do not</strong> communicate with other participants during the entire game.
+     </p>
+     <p>
+        The game will begin with a few questions to check your understanding of the instructions.
+        You will be able to continue after you have answered the questions correctly.
+     </p>
+
+
+    {% next_button %}
+
+{% endblock %}
+

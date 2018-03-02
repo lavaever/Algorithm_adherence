@@ -54,13 +54,23 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
     )
 
-    accuracy = models.IntegerField(
-        label="Which one of the following forecast values has the lowest mean absolute error when the actual sales is 100?",
+    mechanism = models.IntegerField(
+        label="How is the model forecast generated?",
         choices=[
-            [1,'150'],
-            [2,'101'],
-            [3,'50'],
-            [4,'30']
+            [1, 'statistical method based on historical sales data'],
+            [2, 'statistical method based on future sales data'],
+            [3, 'human expert predictions']
+        ],
+        widget=widgets.RadioSelect,
+    )
+
+    accuracy = models.IntegerField(
+        label="Which one of the following forecast values has the lowes MAE(mean absolute error) when the actual sales is 100?",
+        choices=[
+            [1,'106'],
+            [2,'105'],
+            [3,'99'],
+            [4,'95']
         ],
         widget=widgets.RadioSelect,
     )
