@@ -2,14 +2,12 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Period {{ player.round_number }}
+    {{ Constants.product_name }} - Period {{ player.round_number }}
 {% endblock %}
 
 {% block content %}
     <h4>Results</h4>
-    <p>
-    Below is an overview of the final results for this period.
-    </p>
+
     <table class="table">
         <tr>
             <th>Your Initial Forecast</th>

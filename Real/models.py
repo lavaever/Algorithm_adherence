@@ -8,7 +8,7 @@ from radiogrid import RadioGridField
 author = 'Your name here'
 
 doc = """
-Your app description
+shang
 """
 
 
@@ -17,17 +17,19 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 10
 
-    historical_sales = [228,204,230,221,210,210,197,213,220,202,229,217,226,]
-    actual_sales = [223,208,234,104,233,212,196,206,195,200,]
+    historical_sales = [246,249,231,262,270,256,269,288,259,302,324,295,286,]
+    actual_sales = [334,348,303,175,341,337,335,336,323,377,]
 
-    historical_forecast = ['null', 'null', 'null',221,221,215,213,205,209,214,208,219,218,]
-    model_forecast = [222,222,215,225,229,231,222,209,207,201,]
+    historical_forecast = ['null', 'null', 'null',242,252,261,258,264,276,267,285,304,300,]
+    model_forecast = [293,313,331,317,310,325,331,333,335,329]
 
     mencast = ['null','null','null','null','null','null','null','null','null','null','null','null','null',]
     historical_axis = [-12,-11,-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]
 
-    occurence = 5
+    occurence = 4
     product_name = 'IFAG-CMD2INT'
+
+    instructions_template = 'Real/InstructionsInsert.html'
 
 
 
@@ -117,7 +119,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
-"""ROWS = (
+ROWS = (
     (1, 'My initial forecast'),
     (2, 'The model forecast'),
     (3, 'My final forecast'),
@@ -142,14 +144,14 @@ CHALLENGE_LEVEL = (
     (3,"Neither easy nor challenging"),
     (4,"A bit challenging"),
     (5,"Very challenging"),
-)"""
+)
 
 class Player(BasePlayer):
 
-    # initial_forecast = models.IntegerField(min=0, label=False)
-    forecast_amount = models.IntegerField(min=0, label=False)
+    initial_forecast = models.IntegerField(min=0, max=400, label=False)
+    forecast_amount = models.IntegerField(min=0, max=400, label=False)
 
-    """self_evaluation = RadioGridField(
+    self_evaluation = RadioGridField(
         rows=ROWS,
         values=VALUES,
         require_all_fields=True,
@@ -161,7 +163,7 @@ class Player(BasePlayer):
         values=CHALLENGE_LEVEL,
         require_all_fields=True,
         verbose_name=False,
-    )"""
+    )
 
     def role(self):
         if self.id_in_group % 2 == 0:

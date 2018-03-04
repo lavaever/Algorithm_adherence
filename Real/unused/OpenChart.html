@@ -1,94 +1,45 @@
 {% load otree %}
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 <script>
-    $ (function () {
+    $(function () {
         Highcharts.chart('container', {
             chart: {
-                zoomType: 'xy'
+                type: 'line'
             },
             title: {
-                text: 'Historical Sales and App Popularity'
+                text: 'Overview of Historical Data'
             },
             subtitle: {
-                text: 'Source: Infineon Internal Data'
+                text: 'Source: Company Internal Database'
             },
-            xAxis: [{
-                {#categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',#}
-                {#'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],#}
-                 categories: {{ the_axis|json }},
-                {# categories: [1,2,3,4,5],#}
-                 crosshair: true
-            }],
-            yAxis: [{ // Primary yAxis
-                labels: {
-                format: '{value}k units',
-                style: {
-                    color: Highcharts.getOptions().colors[2]
+            xAxis: {
+                categories: {{ the_axis|json }},
+                title: {
+                    text: 'period'
                 }
             },
+            yAxis: {
+                {#max: 300,#}
+                {#min: 0,#}
                 title: {
-                    text: 'Sales',
-                    style: {
-                        color: Highcharts.getOptions().colors[2]
-                    }
-                },
-                opposite: false
-            }, { // Secondary yAxis
-                gridLineWidth: 0,
-                title: {
-                    text: 'App Popularity',
-                    style: {
-                        color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                labels: {
-                    format: '{value} /100',
-                    style: {
-                    color: Highcharts.getOptions().colors[0]
-                    }
-                },
-                opposite: true
-            }],
-            tooltip: {
-                shared: true
+                    text: 'Units (k pcs)'
+                }
             },
-            legend: {
-                layout: 'vertical',
-                align: 'left',
-                x: 80,
-                verticalAlign: 'top',
-                y: 55,
-                floating: true,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false,
+                    animation: false,
+                }
             },
-            {#series: [{#}
-            {#    name: 'App popularity',#}
-            {#    type: 'column',#}
-            {#    yAxis: 1,#}
-            {#    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],#}
-            {#    data: {{ dynamic_popularity|json }},#}
-            {#    data: [20,30,40,50,60],#}
-            {#    tooltip: {#}
-            {#        valueSuffix: ' /100'#}
-            {#    }#}
-
-            {#{, {#}
-            {#    name: 'Sales',#}
-            {#    type: 'spline',#}
-            {#    data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],#}
-            {#    data: {{ dynamic_sales|json }},#}
-            {#    data: [800,2,999,66,6666],#}
-            {#    tooltip: {#}
-            {#        valueSuffix: ' k'#}
-            {#    }#}
-            {#{]#}
-            series: {{ hohoho|json }}
+            series: {{startseries|json}}
         });
     })
 </script>

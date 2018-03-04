@@ -2,20 +2,19 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Results Overview
+    {{ Constants.product_name }} - Results Overview
 {% endblock %}
 
 {% block content %}
 <p>
-    You have finished forecasting the demand of {{ Constants.product_name }}
+    You have finished forecasting the demand of {{ Constants.product_name }}.
 </p>
 
     <p>
-        The chart below gives an overview of your past forecast, the model's past forecast
-        and the past demand.
+        The chart below gives an overview of past model forecast, sales and your past final forecast.
     </p>
     <p>
-        Please click on next to continue to the next forecasting task.
+        Please click on next to continue.
     </p>
 
 

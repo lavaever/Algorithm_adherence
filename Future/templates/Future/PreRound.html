@@ -2,14 +2,17 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Period {{ player.round_number }}
+    {{ Constants.product_name }} - Period {{ player.round_number }}
 {% endblock %}
 
 {% block content %}
-
+<h4>Initial Forecast</h4>
 <p>
-    The chart below shows the historical sales data of {{ Constants.product_name }}.<br/>
-    Please enter your initial forecast for this period in the box below.
+    The chart shows the historical sales data of {{ Constants.product_name }}.<br/>
+</p>
+       {% include 'Future/OpenChart.html' %}
+<p>
+    Based on the data, please enter your initial forecast for this period in the box below.
 </p>
     <table class="table">
             <tr>
@@ -20,9 +23,8 @@
 
     </table>
 
+   {% next_button %}
 
-
-    {% include 'Future/OpenChart.html' %}
-    {% next_button %}
+     {% include Constants.instructions_template %}
 
 {% endblock %}

@@ -15,12 +15,10 @@ class Experience(Page):
     def is_displayed(self):
         return self.player.experience == True
 
-class Challenge(Page):
-    form_model = 'player'
-    form_fields = ['perceived_accuracy','accepted_accuracy','challenge','calculator',]
+
 class Thoughts(Page):
     form_model = 'player'
-    form_fields = ['initial_strategy','final_strategy','final_comment']
+    form_fields = ['calculator','initial_strategy','final_strategy','final_comment']
 
 class Goodbye(Page):
     pass
@@ -30,7 +28,6 @@ class Goodbye(Page):
 page_sequence = [
     Demographics,
     Experience,
-    Challenge,
     Thoughts,
     Goodbye
 ]

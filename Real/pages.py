@@ -34,11 +34,10 @@ class PreRound(Page):
 
         briefing.append({
            'name': 'Sales',
+           'color':'#000000',
            'dashStyle': 'solid',
            'data': saleshistory,
         })
-
-
 
         return {
             'startseries': briefing,
@@ -48,7 +47,6 @@ class PreRound(Page):
 
 class Round(Page):
 
-    # timeout_seconds = 120
     form_model = 'player'
     form_fields = ['forecast_amount',]
 
@@ -220,8 +218,8 @@ class MAE(Page):
 
     def vars_for_template(self):
 
-        # calculate MAE Final Forecast and round it to 1 digit
         forecaster = self.player
+        # calculate MAE Final Forecast and round it to 1 digit
         mencast_sum = 0
         mencast_list = [p.forecast_amount for p in forecaster.in_all_rounds()]
         for i in range(Constants.num_rounds):

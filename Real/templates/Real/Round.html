@@ -2,24 +2,20 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Period {{ player.round_number }}
+    {{ Constants.product_name }} - Period {{ player.round_number }}
 {% endblock %}
 
 {% block content %}
 <h4>Final Forecast</h4>
-    <p>
-        Please see below for the model's forecast for this period.
-    </p>
-    <p>
-        The chart is updated with historical sales, historical model forecast and your past final forecast, if any.<br/>
-        Please enter your final forecast for this period in the box below.
-    </p>
 
+    <p>
+    {% if player.round_number == 1 %} The chart gives an overview of the sales history and <u>past</u> model forecast.
+    {% else %} The chart gives an overview of sales history, <u>past</u> model forecast and your <u>past</u> final forecast.<br/>
+    {% endif %}
+     </p>
+    {% include 'Real/OpenChart.html' %}
+    <p> The model forecast for this period is now available. Please enter your final forecast in the box. </p>
     <table class="table">
-        <tr>
-            <th>Your Initial Forecast</th>
-            <td>{{ player.initial_forecast }}</td>
-        </tr>
         <tr>
             <th>Model Forecast</th>
             <td>{{ forecasted }}</td>
@@ -30,12 +26,9 @@
         </tr>
 
     </table>
-{#    <p>#}
-{#        The system model has forecasted the sales in  period {{ player.round_number }}#}
-{#        to be: <strong>{{ forecasted }}</strong>#}
-{#    </p>#}
 
-    {% include 'Real/OpenChart.html' %}
     {% next_button %}
+
+    {% include Constants.instructions_template %}
 
 {% endblock %}

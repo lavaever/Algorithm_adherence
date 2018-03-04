@@ -71,7 +71,8 @@ LANGUAGE_CODE = 'en'
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree','radiogrid']
 
-# SENTRY_DSN = ''
+SENTRY_DSN = 'http://b1e2f44765e24ec0bde684ffa5301308:b0c9994fc8074b2ea09cfa71e53bcbf5@sentry.otree.org/276'
+
 
 DEMO_PAGE_INTRO_HTML = """
 <ul>

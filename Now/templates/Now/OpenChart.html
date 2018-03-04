@@ -26,7 +26,7 @@
             },
             yAxis: {
                 title: {
-                    text: 'Unit (k pcs)'
+                    text: 'k pcs'
                 }
             },
             tooltip: {
@@ -34,19 +34,16 @@
                 shared: true
             },
             plotOptions: {
-                {#line: {#}
-                {#    dataLabels: {#}
-                {#        enabled: true#}
-                {#    },#}
-                {#    enableMouseTracking: false,#}
-                {#    animation: false,#}
+                series:{
+                    animation: false,
+                },
                 spline:{
                     marker: {
                         radius: 4,
                         lineColor: '#666666',
                         linewidth: 1,
-                    }
-                }
+                    },
+                },
             },
             series: {{startseries|json}}
         });

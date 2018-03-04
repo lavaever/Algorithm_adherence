@@ -2,22 +2,23 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Intelligence Update
+    Important Info - Intelligence Update
 {% endblock %}
 
 {% block content %}
 
     <p>
         The actual sales in period {{player.round_number}} was extraordinarily high
-        due to our client winning a government procurement contract
+        due to one of our clients winning a government procurement contract
         as the opponent fell out of the bidding process unexpectedly.
     </p>
     <p>
         In order to fulfill the contract, our client placed an emergency order with us on short notice.
     </p>
     <p>
-        The forecast model has been designed to exclude rare events like this
-        and thus forecasted far off the actual sales of this period.
+        The model was far off the actual sales of this period as this incident was not
+        anticipated. Because this incident is not supposed to affect future demand, this
+        period's sales will be ignored by the model when predicting future sales.
     </p>
 
     {% next_button %}
